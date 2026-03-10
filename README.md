@@ -1,111 +1,33 @@
-# MCP Chat
+**MCP-document-agent*
 
-MCP Chat is a command-line interface application that enables interactive chat capabilities with AI models through the Anthropic API. The application supports document retrieval, command-based prompts, and extensible tool integrations via the MCP (Model Control Protocol) architecture.
+A conversational AI agent built with Anthropic's Model Context Protocol (MCP) that reads and edits documents through natural language, powered by Claude.
 
-## Prerequisites
 
-- Python 3.9+
-- Anthropic API Key
+What It Does
+Chat naturally with your documents. Ask Claude to read, summarize, reformat, or edit any document — it uses MCP tools and resources under the hood to get it done.
 
-## Setup
+**Features**
 
-### Step 1: Configure the environment variables
+MCP Tools — read_doc_contents, edit_document
 
-1. Create or edit the `.env` file in the project root and verify that the following variables are set correctly:
+MCP Resources — docs://documents (list all docs), docs://documents/{doc_id} (fetch a doc)
 
-```
-ANTHROPIC_API_KEY=""  # Enter your Anthropic API secret key
-```
+MCP Prompts — reformat a doc in markdown, summarize a doc
 
-### Step 2: Install dependencies
+CLI Chat Interface — interactive terminal chat with @mention support for documents
 
-#### Option 1: Setup with uv (Recommended)
+Claude-powered — full agentic loop with tool use via Anthropic API
 
-[uv](https://github.com/astral-sh/uv) is a fast Python package installer and resolver.
+**Setup**
 
-1. Install uv, if not already installed:
+1. Clone the repo
+bashgit clone https://github.com/YOUR_USERNAME/mcp-document-agent
+cd mcp-document-agent
 
-```bash
-pip install uv
-```
+2. Create and activate a virtual environment
+bashuv venv
+# Windows:
+.venv\Scripts\activate
 
-2. Create and activate a virtual environment:
-
-```bash
-uv venv
-source .venv/bin/activate  # On Windows: .venv\Scripts\activate
-```
-
-3. Install dependencies:
-
-```bash
-uv pip install -e .
-```
-
-4. Run the project
-
-```bash
-uv run main.py
-```
-
-#### Option 2: Setup without uv
-
-1. Create and activate a virtual environment:
-
-```bash
-python -m venv .venv
-source .venv/bin/activate  # On Windows: .venv\Scripts\activate
-```
-
-2. Install dependencies:
-
-```bash
-pip install anthropic python-dotenv prompt-toolkit "mcp[cli]==1.8.0"
-```
-
-3. Run the project
-
-```bash
-python main.py
-```
-
-## Usage
-
-### Basic Interaction
-
-Simply type your message and press Enter to chat with the model.
-
-### Document Retrieval
-
-Use the @ symbol followed by a document ID to include document content in your query:
-
-```
-> Tell me about @deposition.md
-```
-
-### Commands
-
-Use the / prefix to execute commands defined in the MCP server:
-
-```
-> /summarize deposition.md
-```
-
-Commands will auto-complete when you press Tab.
-
-## Development
-
-### Adding New Documents
-
-Edit the `mcp_server.py` file to add new documents to the `docs` dictionary.
-
-### Implementing MCP Features
-
-To fully implement the MCP features:
-
-1. Complete the TODOs in `mcp_server.py`
-2. Implement the missing functionality in `mcp_client.py`
-
-### Linting and Typing Check
-
-There are no lint or type checks implemented.
+3. Install dependencies
+bashuv pip install -r requirements.txt --index-url https://pypi.org/simple
