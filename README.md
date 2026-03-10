@@ -1,4 +1,4 @@
-**MCP-document-agent*
+**MCP-document-agent**
 
 A conversational AI agent built with Anthropic's Model Context Protocol (MCP) that reads and edits documents through natural language, powered by Claude.
 
