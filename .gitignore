@@ -2,3 +2,13 @@
 __pycache__
 .venv
 .DS_Store
+.lock
+uv.lock
+CACHEDIR.TAG
+*.egg-info/
+dist/
+build/
+.vscode/
+Thumbs.db
+cli_project.zip
+cli_project_COMPLETE.*
