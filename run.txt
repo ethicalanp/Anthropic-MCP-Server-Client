@@ -1,0 +1,13 @@
+Step 1: Test your server runs without crashing
+cmdD:\Documents\PROJECTS\MCP\.venv\Scripts\python.exe mcp_server.py
+Tell me what output you see. It should either hang (waiting for input — which is correct for stdio!) or show an error.
+
+Step 2: If it hangs (good sign!), open MCP Inspector manually
+In a second terminal run:
+cmdnpx @modelcontextprotocol/inspector
+When it opens in the browser, set it up like this:
+
+Transport: STDIO
+Command: D:\Documents\PROJECTS\MCP\.venv\Scripts\python.exe
+Arguments: mcp_server.py
+Working directory: D:\Documents\PROJECTS\MCP
